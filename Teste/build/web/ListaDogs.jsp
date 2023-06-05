@@ -56,7 +56,7 @@
        </tbody>
    </table>
         <div class="groupb">
-            <a href="http://localhost:8080/Teste/cadastroDogs.html" 
+            <a href="http://localhost:8084/Dogsproj/cadastroDogs.html" 
                   class="botoes">Voltar ao Cadastro</a>
             </div>
     </body>

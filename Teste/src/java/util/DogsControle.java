@@ -43,20 +43,21 @@ public class DogsControle extends HttpServlet {
             Dogs dg = new Dogs();
 
             if (op.equals("CADASTRAR")) {
-                int cod = Integer.parseInt(request.getParameter(""));
-                String nome = request.getParameter("");
-                int idade = Integer.parseInt(request.getParameter(""));
-                String raca = request.getParameter("");
-                double peso = Double.parseDouble(request.getParameter(""));
-                String porte = request.getParameter("");
-                String cor = request.getParameter("");
-                String descricao = request.getParameter("");
-                String endereco = request.getParameter("");
-                String comidafav = request.getParameter("");
-                dg.setCodigo(cod);
+                
+                String nome = request.getParameter("txtNome");
+                int idade = Integer.parseInt(request.getParameter("txtIdade"));
+                String raca = request.getParameter("txtRaca");
+                double peso = Double.parseDouble(request.getParameter("txtPeso"));
+                String porte = request.getParameter("txtPorte");
+                String cor = request.getParameter("txtCor");
+                String descricao = request.getParameter("txtND");
+                String endereco = request.getParameter("txtEndereco");
+                String comidafav = request.getParameter("txtCF");
+               
                 dg.setNome(nome);
                 dg.setIdade(idade);
                 dg.setRaca(raca);
+                dg.setPeso(peso);
                 dg.setPorte(porte);
                 dg.setCor(cor);
                 dg.setDescricao(descricao);
@@ -76,7 +77,7 @@ public class DogsControle extends HttpServlet {
                 }
 
             } else if (op.equals("DELETAR")) {
-                int id = Integer.parseInt(request.getParameter(""));
+                int id = Integer.parseInt(request.getParameter("txtId"));
                 dg.setCodigo(id);
                 String msg = "Deletar";
                 try {
@@ -89,11 +90,11 @@ public class DogsControle extends HttpServlet {
                     request.setAttribute("message", msg);
                     request.getRequestDispatcher("Erro.jsp").forward(request, response);
                 }
-            } else if(op.equals("LISTA")){
+            } else if(op.equals("LISTAR")){
               try {
                List<Dogs> ldog = ddao.ConsultaTodos();
                request.setAttribute("ldog", ldog);
-               request.getRequestDispatcher("OpSucesso.jsp").forward(request, response);
+               request.getRequestDispatcher("ListaDogs.jsp").forward(request, response);
               }catch (ClassNotFoundException | SQLException ex){
               System.out.println("Error ClassNotFound" +ex);
               request.getRequestDispatcher("Erro.jsp").forward(request, response);
@@ -101,29 +102,32 @@ public class DogsControle extends HttpServlet {
               
             
             }else if (op.equals("ATUALIZAR")){
-               int id = Integer.parseInt(request.getParameter(""));
+               int id = Integer.parseInt(request.getParameter("txtId"));
                dg.setCodigo(id);
                try{
                     dg = ddao.Consulta(dg);
                     request.setAttribute("dg", dg);
-                    request.getRequestDispatcher("confirmaAtt").forward(request, response);
+                    request.getRequestDispatcher("confirmaATT.jsp").forward(request, response);
                }catch(ClassNotFoundException | SQLException ex){
                      System.out.println("Error ClassNotFound"+ex);
+                     request.getRequestDispatcher("Erro.jsp").forward(request, response);
                }
             }else if(op.equals("CONFIRMAR ATUALIZACAO")){
-               int id   = Integer.parseInt(request.getParameter(""));
-               String nome = request.getParameter("");
-               int idade = Integer.parseInt(request.getParameter(""));
-               String raca = request.getParameter("");
-               String porte = request.getParameter("");
-               String cor = request.getParameter("");
-               String descricao = request.getParameter("");
-               String endereco = request.getParameter("");
-               String comidafav = request.getParameter("");
+               int id   = Integer.parseInt(request.getParameter("txtId"));
+               String nome = request.getParameter("txtNome");
+               int idade = Integer.parseInt(request.getParameter("txtIdade"));
+               String raca = request.getParameter("txtRaca");
+               double peso = Double.parseDouble(request.getParameter("txtPeso"));
+               String porte = request.getParameter("txtPorte");
+               String cor = request.getParameter("txtCor");
+               String descricao = request.getParameter("txtND");
+               String endereco = request.getParameter("txtEndereco");
+               String comidafav = request.getParameter("txtCF");
                dg.setCodigo(id);
                dg.setNome(nome);
                dg.setIdade(idade);
                dg.setRaca(raca);
+               dg.setPeso(peso);
                dg.setPorte(porte);
                dg.setCor(cor);
                dg.setDescricao(descricao);

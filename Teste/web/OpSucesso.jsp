@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% request.getAttribute("message");%>
-        <%out.println("msg");%>
+        <% String msg = (String)request.getAttribute("message");%>
+       <h1> <%out.println(msg);%></h1>
         <h1>Operacação feita com sucesso</h1>
     </body>
 </html>

@@ -23,17 +23,16 @@ public class DogsDAO {
     
     public void Cadastra(Dogs d) throws ClassNotFoundException ,SQLException{
      Connection con = conexao.getConexao();
-     PreparedStatement comando = con.prepareStatement ("insert into Tdogs (codigo, nome, idade, raca, peso, porte, cor, descricao, endereco, comidafav) values (?,?,?,?,?,?,?,?,?,?)");
-     comando.setInt(1, d.getCodigo());
-     comando.setString(2, d.getNome());
-     comando.setInt(3, d.getIdade());
-     comando.setString(4, d.getRaca()); 
-     comando.setDouble(5, d.getPeso());
-     comando.setString(6, d.getPorte());
-     comando.setString (7, d.getCor());
-     comando.setString(8, d.getDescricao());
-     comando.setString(9, d.getEndereco());
-     comando.setString(10, d.getComidafav());
+     PreparedStatement comando = con.prepareStatement ("insert into tdogs ( nome, idade, raca, peso, porte, cor, nd, endereco, comidafav) values (?,?,?,?,?,?,?,?,?)");
+     comando.setString(1, d.getNome());
+     comando.setInt(2, d.getIdade());
+     comando.setString(3, d.getRaca()); 
+     comando.setDouble(4, d.getPeso());
+     comando.setString(5, d.getPorte());
+     comando.setString (6, d.getCor());
+     comando.setString(7, d.getDescricao());
+     comando.setString(8, d.getEndereco());
+     comando.setString(9, d.getComidafav());
      comando.execute();
      comando.close();
      
@@ -43,7 +42,7 @@ public class DogsDAO {
     
      public void  Deletetar(Dogs d) throws ClassNotFoundException, SQLException{
          Connection con = conexao.getConexao();
-         PreparedStatement comando = con.prepareStatement ("delete from tdogs where id = ?");
+         PreparedStatement comando = con.prepareStatement ("delete from tdogs where codigo = ?");
          comando.setInt(1, d.getCodigo());
          comando.execute();
  
@@ -51,7 +50,7 @@ public class DogsDAO {
      
      public void Atualizar(Dogs d ) throws ClassNotFoundException, SQLException{
       Connection con = conexao.getConexao();
-      PreparedStatement comando = con.prepareStatement("update tdogs set codigo =?, nome =?, idade =?, raca=?, peso=?, porte=?, cor=?, descricao=?, endereco=?, comidafav=?");
+      PreparedStatement comando = con.prepareStatement("update tdogs set codigo =?, nome =?, idade =?, raca=?, peso=?, porte=?, cor=?, nd=?, endereco=?, comidafav=?");
       comando.setInt(1, d.getCodigo());
       comando.setString(2, d.getNome());
       comando.setInt(3, d.getIdade());
@@ -70,7 +69,7 @@ public class DogsDAO {
      
      public Dogs Consulta(Dogs d) throws ClassNotFoundException, SQLException{
      Connection con = conexao.getConexao();
-     PreparedStatement comando = con.prepareStatement("select* from tdogs whre id =?");
+     PreparedStatement comando = con.prepareStatement("select * from tdogs where codigo =?");
      comando.setInt(1, d.getCodigo());
      ResultSet rs = comando.executeQuery();
      Dogs dg = new Dogs();
@@ -82,9 +81,10 @@ public class DogsDAO {
       dg.setPeso(rs.getDouble("peso"));
       dg.setPorte(rs.getString("porte"));
       dg.setCor(rs.getString("cor"));
-      dg.setDescricao(rs.getString("descricao"));
+      dg.setDescricao(rs.getString("nd"));
       dg.setEndereco(rs.getString("endereco"));
       dg.setComidafav(rs.getString("comidafav"));
+      con.close();
      }
      return dg;
    }
@@ -95,7 +95,7 @@ public class DogsDAO {
      PreparedStatement comando = con.prepareStatement("select * from tdogs");
      ResultSet rs = comando.executeQuery();
      List<Dogs> ldog = new ArrayList<Dogs>();
-     if(rs.next()){
+     while(rs.next()){
          Dogs dg = new Dogs();
       dg.setCodigo(rs.getInt("codigo"));
       dg.setNome(rs.getString("nome"));
@@ -104,9 +104,10 @@ public class DogsDAO {
       dg.setPeso(rs.getDouble("peso"));
       dg.setPorte(rs.getString("porte"));
       dg.setCor(rs.getString("cor"));
-      dg.setDescricao(rs.getString("descricao"));
+      dg.setDescricao(rs.getString("nd"));
       dg.setEndereco(rs.getString("endereco"));
       dg.setComidafav(rs.getString("comidafav"));
+      ldog.add(dg);
      
      }
      

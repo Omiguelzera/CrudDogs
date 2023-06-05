@@ -6,11 +6,43 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Tela de cadastro!</title>
+        <link rel="stylesheet" href="Cadastro.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+       <div class="container">
+             <h3>Cadastro do doguinho</h3>
+
+
+        <form action="DogsControle" >
+
+            <h3> Codigo: <input type="text" name="txtId"><BR></h3>
+            <h3> Nome: <input type="text" name="txtNome"><BR></h3>
+            <h3> Idade: <input type="text" name="txtIdade"><BR></h3>
+            <h3> Raça: <input type="text" name="txtRaca"><BR></h3>
+            <h3> Peso: <input type="text" name="txtPeso"><BR></h3>
+            <h3> Porte: <input type="text" name="txtPorte"><BR></h3>
+            <h3> Cor: <input type="text" name="txtCor"><BR></h3>
+            <h3> Nome do Dono: <input type="text" name="txtND"><BR></h3>
+            <h3> Endereço: <input type="text" name="txtEndereco"><BR></h3>
+            <h3> Comida Favorita: <input type="text" name="txtCF"><BR></h3>
+
+            <input type="submit" name="op" value="CADASTRAR"><br>
+
+            <input type="submit" name="op" value="LISTAR"><br>
+
+            <input type="submit" name="op" value="ATUALIZAR"><br>
+
+            <input type="submit" name="op" value="DELETAR"><br>
+
+            <div class="groupb">
+                <h3><a href="http://localhost:8080/Teste/" 
+                       class="botoes">Voltar a Pagina Principal</a></h3>
+               
+                        </div>
+        </form>
+        </div>
     </body>
 </html>

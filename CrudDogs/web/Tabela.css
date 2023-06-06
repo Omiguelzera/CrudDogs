@@ -1,0 +1,54 @@
+ body {
+            font-family: "Comic Sans MS", cursive;
+            background-color: #FBE0B3;
+        }
+
+        h1 {
+            text-align: center;
+            color: #A54D23;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #A54D23;
+        }
+
+        th {
+            background-color: #FFC888;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #FFE8C5;
+        }
+
+        .groupb {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .botoes {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #A54D23;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: "Comic Sans MS", cursive;
+            text-transform: uppercase;
+        }/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/06/2023, 23:30:30
+    Author     : migue
+*/
+

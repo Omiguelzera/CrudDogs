@@ -1,0 +1,78 @@
+  body {
+            font-family: "Comic Sans MS", cursive;
+            background-color: #FBE0B3;
+        }
+  .required-msg {
+        color: red;
+    }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #FFF7E6;
+            border: 1px solid #A54D23;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        h3 {
+            color: #A54D23;
+            margin-top: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #A54D23;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #A54D23;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-family: "Comic Sans MS", cursive;
+            text-transform: uppercase;
+        }
+
+        .groupb {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .botoes {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #A54D23;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: "Comic Sans MS", cursive;
+            text-transform: uppercase;
+        }
+        .botao-prosseguir {
+  padding: 10px 80px;
+  background-color: #A54D23;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Comic Sans MS", cursive;
+  text-transform: uppercase;
+}/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 04/06/2023, 23:32:08
+    Author     : migue
+*/
+
